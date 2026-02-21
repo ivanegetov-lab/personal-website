@@ -100,3 +100,223 @@
     box-shadow: 0 0 30px 0 rgba(249, 115, 22, 0.1);
   }
 }
+
+/* ── Article / Blog post prose styles ─────────────────────────────────── */
+/* Applied via class="prose-post" on the article content wrapper           */
+.prose-post {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: #A3A3A3;
+  max-width: none;
+}
+
+/* Paragraphs */
+.prose-post p {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #A3A3A3;
+}
+
+/* Headings — Bebas Neue, white, with orange underline accent */
+.prose-post h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #F5F5F5;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #F97316;
+  display: block;
+}
+
+.prose-post h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-post h4 {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F5F5F5;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Bold and italic */
+.prose-post strong {
+  color: #F5F5F5;
+  font-weight: 600;
+}
+
+.prose-post em {
+  color: #A3A3A3;
+  font-style: italic;
+}
+
+/* Links — orange, underline on hover */
+.prose-post a {
+  color: #F97316;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(249, 115, 22, 0.3);
+  transition: border-color 0.2s, color 0.2s;
+}
+.prose-post a:hover {
+  color: #FB923C;
+  border-bottom-color: #FB923C;
+}
+
+/* Blockquotes — orange left border, like the About section pull quote */
+.prose-post blockquote {
+  border-left: 4px solid #F97316;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: #F5F5F5;
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.prose-post blockquote p {
+  color: #F5F5F5;
+  margin-bottom: 0;
+}
+
+/* Bullet and numbered lists */
+.prose-post ul,
+.prose-post ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  color: #A3A3A3;
+}
+
+.prose-post ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prose-post ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-post ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 6px;
+  height: 6px;
+  background-color: #F97316;
+  border-radius: 50%;
+}
+
+.prose-post ol {
+  list-style: decimal;
+}
+
+.prose-post ol li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.prose-post ol li::marker {
+  color: #F97316;
+  font-weight: 600;
+}
+
+/* Horizontal rule */
+.prose-post hr {
+  border: none;
+  border-top: 1px solid #222222;
+  margin: 3rem 0;
+}
+
+/* Images — full width, rounded, with a subtle dark border */
+.prose-post img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  border: 1px solid #222222;
+  margin: 2rem 0;
+  display: block;
+}
+
+/* Image captions (text immediately after an image in italics) */
+.prose-post img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #525252;
+  margin-top: -1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Inline code */
+.prose-post code {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.875em;
+  background-color: #1A1A1A;
+  color: #F97316;
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+  border: 1px solid #222222;
+}
+
+/* Code blocks */
+.prose-post pre {
+  background-color: #111111;
+  border: 1px solid #222222;
+  border-radius: 2px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.prose-post pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #F5F5F5;
+  font-size: 0.875rem;
+}
+
+/* Tables */
+.prose-post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+}
+
+.prose-post th {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #F97316;
+  border-bottom: 2px solid #222222;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.prose-post td {
+  color: #A3A3A3;
+  border-bottom: 1px solid #1A1A1A;
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+}
+
+.prose-post tr:last-child td {
+  border-bottom: none;
+}

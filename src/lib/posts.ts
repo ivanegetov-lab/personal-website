@@ -1,3 +1,13 @@
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { remark } from "remark";
+import remarkGfm from "remark-gfm";
+import remarkHtml from "remark-html";
+
+// Where all .md files live
+const postsDirectory = path.join(process.cwd(), "content/posts");
+
 export interface Post {
   slug: string;
   title: string;
@@ -6,53 +16,67 @@ export interface Post {
   date: string;
   readTime: string;
   featured?: boolean;
+  contentHtml?: string; // only populated by getPostBySlug
 }
 
-export const posts: Post[] = [
-  {
-    slug: "predictive-vs-preventive-maintenance",
-    title: "Predictive vs Preventive: Why the Difference Matters on the Floor",
-    excerpt:
-      "Most teams default to preventive schedules. Here's when to make the case for predictive — and how to sell it upward.",
-    category: "Maintenance",
-    date: "February 14, 2026",
-    readTime: "6 min read",
-    featured: true,
-  },
-  {
-    slug: "leading-shift-workers",
-    title: "What Leading Shift Workers Taught Me About Consistency",
-    excerpt:
-      "There is no 'off' in a 24/7 facility. The lessons from managing rotating shifts apply far beyond the plant.",
-    category: "Leadership",
-    date: "January 28, 2026",
-    readTime: "4 min read",
-  },
-  {
-    slug: "lessons-from-the-floor",
-    title: "Five Things Manufacturing Taught Me About Raising Kids",
-    excerpt:
-      "Lean thinking, root cause analysis, and standard work — turns out these apply at home too.",
-    category: "Life",
-    date: "January 12, 2026",
-    readTime: "5 min read",
-  },
-  {
-    slug: "kaizen-for-the-individual",
-    title: "Kaizen for the Individual: Continuous Improvement Isn't Just for Plants",
-    excerpt:
-      "The same philosophy that drives manufacturing excellence can transform personal growth — if you apply it honestly.",
-    category: "Leadership",
-    date: "December 30, 2025",
-    readTime: "7 min read",
-  },
-  {
-    slug: "building-maintenance-culture",
-    title: "Building a Maintenance Culture That Outlasts You",
-    excerpt:
-      "Equipment can be replaced. A team's commitment to care cannot. Here's how to make maintenance a value, not a task.",
-    category: "Maintenance",
-    date: "December 15, 2025",
-    readTime: "8 min read",
-  },
-];
+/** Returns all .md filenames as slugs (without .md extension) */
+export function getPostSlugs(): string[] {
+  return fs
+    .readdirSync(postsDirectory)
+    .filter((file) => file.endsWith(".md"))
+    .map((file) => file.replace(/\.md$/, ""));
+}
+
+/** Reads one markdown file, parses front matter + body, returns full Post */
+export async function getPostBySlug(slug: string): Promise<Post> {
+  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+
+  // Split front matter (---) from markdown body
+  const { data, content } = matter(fileContents);
+
+  // Convert markdown to HTML
+  const processedContent = await remark()
+    .use(remarkGfm)                          // tables, strikethrough, task lists
+    .use(remarkHtml, { sanitize: false })    // allow inline HTML in posts
+    .process(content);
+
+  const contentHtml = processedContent.toString();
+
+  return {
+    slug,
+    title: data.title,
+    excerpt: data.excerpt,
+    category: data.category,
+    date: data.date,
+    readTime: data.readTime,
+    featured: data.featured ?? false,
+    contentHtml,
+  };
+}
+
+/** Returns all posts sorted newest first, without body HTML (for cards/grids) */
+export function getAllPosts(): Post[] {
+  const slugs = getPostSlugs();
+
+  const posts = slugs.map((slug) => {
+    const fullPath = path.join(postsDirectory, `${slug}.md`);
+    const fileContents = fs.readFileSync(fullPath, "utf8");
+    const { data } = matter(fileContents);
+
+    return {
+      slug,
+      title: data.title,
+      excerpt: data.excerpt,
+      category: data.category,
+      date: data.date,
+      readTime: data.readTime,
+      featured: data.featured ?? false,
+    } as Post;
+  });
+
+  // Sort newest first
+  return posts.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+}

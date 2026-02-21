@@ -2,7 +2,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BlogCard } from "@/components/ui/BlogCard";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { posts } from "@/lib/posts";
+import { getAllPosts } from "@/lib/posts";
 
 export const metadata = {
   title: "Blog — Ivan Getov",
@@ -10,6 +10,8 @@ export const metadata = {
 };
 
 export default function BlogPage() {
+  const posts = getAllPosts();
+
   return (
     <main>
       <Navbar />
