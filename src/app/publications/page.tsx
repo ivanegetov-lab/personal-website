@@ -8,23 +8,51 @@ import { SUBSTACK_URL } from "@/lib/constants";
 export const metadata = {
   title: "Publications — Ivan Getov",
   description:
-    "Books and publications by Ivan Getov on maintenance leadership, manufacturing, and building things that last.",
+    "Leadership Isn't Personal — a book by Ivan Getov on why systems outlast personalities and how to build organizations that hold under pressure.",
 };
 
 /* ─── Book data ──────────────────────────────────────────────────────────── */
 const FEATURED_BOOK = {
-  title: "Built to Last",
-  subtitle: "A Maintenance Leader's Guide to Building Systems, Teams, and a Career That Endures",
-  description:
-    "After two decades on the plant floor, I've seen exactly what separates a maintenance program that quietly holds everything together from one that collapses the moment pressure mounts. This book is the distillation of those years — the frameworks, the failures, the hard-won lessons. Written for the maintenance supervisor who wants to stop firefighting and start leading.",
+  title: "Leadership Isn't Personal",
+  subtitle: "Why Systems Outlast Personalities — and How to Build Organizations That Hold Under Pressure",
   status: "Coming Soon",
   coverImage: "/images/3d_book_cover.png",
+  intro: [
+    "After years inside manufacturing environments — leading maintenance teams, managing capital work, carrying uptime responsibility — I've seen what actually separates stable organizations from fragile ones.",
+    "It isn\u2019t personality. It isn\u2019t intensity. It isn\u2019t how much a leader \u201Ccares.\u201D",
+    "It's whether the system holds under pressure.",
+    "This book is the distillation of those years — the patterns behind recurring failures, the structural fixes that stabilized performance, and the leadership shifts that stopped drift before it became crisis.",
+  ],
+  audience: [
+    "The plant manager who's tired of solving the same problem twice.",
+    "The maintenance leader who wants performance to hold even when they're not in the room.",
+    "The operator who knows something structural is off — but can't quite name it.",
+  ],
   topics: [
-    "Predictive vs. preventive strategy",
-    "Building a maintenance culture that outlasts you",
-    "Leading shift workers with consistency and respect",
-    "Kaizen thinking for the individual technician",
-    "Career development in manufacturing leadership",
+    {
+      title: "The Personality Trap",
+      description: "Why strong leaders fail in weak systems — and why effort alone doesn't scale.",
+    },
+    {
+      title: "How Standards Quietly Erode",
+      description: "The subtle drift that reshapes expectations long before results collapse.",
+    },
+    {
+      title: "Signals Over Intent",
+      description: "Why organizations respond to reinforcement, not motivation.",
+    },
+    {
+      title: "Early Correction vs. Late Rescue",
+      description: "How intervention timing determines whether teams grow or become dependent.",
+    },
+    {
+      title: "Designing Autonomy Without Losing Control",
+      description: "Building systems that allow independent thinking without sacrificing accountability.",
+    },
+    {
+      title: "The Leadership System Flywheel",
+      description: "A structural model for stabilizing performance long-term.",
+    },
   ],
 };
 
@@ -103,27 +131,43 @@ export default function PublicationsPage() {
               {/* Divider */}
               <div className="w-16 h-0.5 bg-accent mb-6" />
 
-              {/* Description */}
-              <p className="font-body text-text-muted text-base leading-relaxed mb-8 max-w-xl">
-                {FEATURED_BOOK.description}
-              </p>
+              {/* Intro paragraphs */}
+              <div className="space-y-4 mb-6 max-w-xl">
+                {FEATURED_BOOK.intro.map((para, i) => (
+                  <p key={i} className="font-body text-text-muted text-base leading-relaxed">
+                    {para}
+                  </p>
+                ))}
+              </div>
 
-              {/* Topics */}
-              <div className="mb-10">
-                <p className="font-body text-[11px] font-semibold tracking-[0.15em] uppercase text-accent mb-4">
-                  What&apos;s Inside
+              {/* Written for */}
+              <div className="mb-8 max-w-xl">
+                <p className="font-body text-[11px] font-semibold tracking-[0.15em] uppercase text-accent mb-3">
+                  Written For
                 </p>
                 <ul className="space-y-2">
-                  {FEATURED_BOOK.topics.map((topic) => (
-                    <li
-                      key={topic}
-                      className="flex items-start gap-3 font-body text-sm text-text-secondary"
-                    >
-                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                      {topic}
+                  {FEATURED_BOOK.audience.map((line) => (
+                    <li key={line} className="flex items-start gap-3 font-body text-sm text-text-secondary italic">
+                      <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent not-italic" />
+                      {line}
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              {/* Chapter topics */}
+              <div className="mb-10 max-w-xl">
+                <p className="font-body text-[11px] font-semibold tracking-[0.15em] uppercase text-accent mb-4">
+                  What&apos;s Inside
+                </p>
+                <div className="space-y-3">
+                  {FEATURED_BOOK.topics.map((topic) => (
+                    <div key={topic.title} className="border-l-2 border-border pl-4 hover:border-accent transition-colors duration-200">
+                      <p className="font-body text-sm font-semibold text-text-primary">{topic.title}</p>
+                      <p className="font-body text-xs text-text-muted mt-0.5">{topic.description}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* CTA buttons */}
@@ -275,7 +319,7 @@ export default function PublicationsPage() {
                 IVAN GETOV
               </h3>
               <p className="font-body text-sm text-text-muted leading-relaxed max-w-2xl">
-                Ivan Getov is a maintenance leader and manufacturing professional with over two decades of experience keeping complex industrial systems running. He writes about leadership, operational reliability, and the craft of building things — and teams — that last. He lives with his wife and kids and is currently working on his first book.
+                Ivan Getov is a maintenance leader and manufacturing professional with over 10 years of experience keeping complex industrial systems running. He writes about leadership, operational reliability, and the craft of building things — and teams — that last. He lives with his wife and son, and <em>Leadership Isn&apos;t Personal</em> is his first book.
               </p>
               <div className="flex gap-6 mt-5 justify-center md:justify-start">
                 <Link

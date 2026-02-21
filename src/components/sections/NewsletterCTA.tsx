@@ -33,7 +33,7 @@ export function NewsletterCTA() {
               <span className="text-gradient-orange">NEXT ONE.</span>
             </h2>
             <p className="mt-6 font-body text-base text-text-secondary leading-relaxed max-w-sm">
-              Practical insights from 20+ years on the manufacturing floor — on maintenance leadership, building teams, and the discipline it takes to keep systems running at their best.
+              Practical insights from 10+ years on the manufacturing floor — on maintenance leadership, building teams, and the discipline it takes to keep systems running at their best.
             </p>
 
             {/* Social proof */}

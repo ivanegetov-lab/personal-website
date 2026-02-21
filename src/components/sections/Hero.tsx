@@ -106,7 +106,7 @@ export function Hero() {
                 Maintenance Leader
               </p>
               <p className="font-display text-xl text-text-primary leading-tight mt-0.5">
-                20+ YEARS
+                10+ YEARS
               </p>
             </div>
           </div>

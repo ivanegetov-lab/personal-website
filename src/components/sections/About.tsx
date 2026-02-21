@@ -2,10 +2,10 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 
 const stats = [
-  { value: "20+", label: "Years in Manufacturing" },
+  { value: "10+", label: "Years in Manufacturing" },
   { value: "100s", label: "of Team Members Led" },
   { value: "0", label: "Unplanned Shutdowns Accepted" },
-  { value: "2", label: "Kids Who Keep Me Sharp" },
+  { value: "1", label: "Kid Who Keeps Me Sharp" },
 ];
 
 export function About() {
@@ -29,7 +29,7 @@ export function About() {
                 className="font-display text-text-primary leading-none tracking-wide"
                 style={{ fontSize: "clamp(3rem, 6vw, 5rem)" }}
               >
-                20+ YEARS OF KEEPING
+                10+ YEARS OF KEEPING
                 <br />
                 <span className="text-gradient-orange">THINGS RUNNING.</span>
               </h2>
@@ -51,7 +51,7 @@ export function About() {
               </blockquote>
 
               <p className="font-body text-base leading-relaxed text-text-secondary">
-                Outside work, I&apos;m a father — and that&apos;s shaped how I think about everything. Every standard I set, every habit I build, every decision I make: I&apos;m teaching my kids what it looks like to do things right.
+                Outside work, I&apos;m a husband and father — and that&apos;s shaped how I think about everything. Every standard I set, every habit I build, every decision I make: I&apos;m teaching my kid what it looks like to do things right.
               </p>
             </AnimatedSection>
           </div>
