@@ -75,7 +75,7 @@ export function Hero() {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="hidden lg:flex flex-col items-center justify-center shrink-0"
+          className="flex flex-col items-center justify-center shrink-0 order-first lg:order-last mb-8 lg:mb-0"
         >
           {/* Outer decorative frame */}
           <div className="relative">
@@ -84,10 +84,10 @@ export function Hero() {
             {/* Corner accent — bottom-right */}
             <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
 
-            {/* Photo container — sized to portrait ratio of the headshot (704×1291 → ~1:1.83) */}
+            {/* Photo container — fixed ratio 1:1.83, responsive width */}
             <div
               className="relative overflow-hidden rounded-sm bg-surface-2 border border-border"
-              style={{ width: "300px", height: "550px" }}
+              style={{ width: "min(260px, 72vw)", aspectRatio: "704 / 1291" }}
             >
               <Image
                 src="/images/headshot.png"
