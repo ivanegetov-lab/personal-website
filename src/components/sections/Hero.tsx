@@ -84,20 +84,20 @@ export function Hero() {
             {/* Corner accent — bottom-right */}
             <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
 
-            {/* Photo container */}
+            {/* Photo container — sized to portrait ratio of the headshot (704×1520 → ~1:2.16) */}
             <div
               className="relative overflow-hidden rounded-sm bg-surface-2 border border-border"
-              style={{ width: "340px", height: "440px" }}
+              style={{ width: "300px", height: "648px" }}
             >
               <Image
                 src="/images/headshot.png"
                 alt="Ivan Getov"
                 fill
-                className="object-cover object-top grayscale"
+                className="object-cover object-center grayscale"
                 priority
               />
-              {/* Subtle gradient overlay */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
+              {/* Subtle gradient at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
             </div>
 
             {/* Floating credential badge */}
