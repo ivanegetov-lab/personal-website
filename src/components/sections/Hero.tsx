@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { SITE_META } from "@/lib/constants";
@@ -91,42 +92,14 @@ export function Hero() {
               className="relative overflow-hidden rounded-sm bg-surface-2 border border-border"
               style={{ width: "340px", height: "440px" }}
             >
-              {/* Placeholder state — replace src with real image later */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 text-center px-8">
-                {/* Camera icon */}
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-border">
-                  <svg
-                    className="h-7 w-7 text-text-muted"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.25}
-                      d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.25}
-                      d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-body text-sm font-semibold text-text-secondary">
-                    Your photo here
-                  </p>
-                  <p className="font-body text-xs text-text-muted mt-1 leading-relaxed">
-                    Drop a high-quality B&W portrait into{" "}
-                    <code className="text-accent text-[10px]">public/images/ivan.jpg</code>
-                  </p>
-                </div>
-              </div>
-
-              {/* Subtle gradient overlay for when image is added */}
+              <Image
+                src="/images/headshot.png"
+                alt="Ivan Getov"
+                fill
+                className="object-cover object-top grayscale"
+                priority
+              />
+              {/* Subtle gradient overlay */}
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
             </div>
 

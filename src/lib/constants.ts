@@ -10,13 +10,8 @@ export const SUBSTACK_URL = "https://getov.substack.com";
 export const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/ivan-getov-mba",
     icon: "linkedin",
-  },
-  {
-    label: "X / Twitter",
-    href: "https://x.com",
-    icon: "x",
   },
   {
     label: "Substack",
