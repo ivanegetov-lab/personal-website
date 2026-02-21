@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, SUBSTACK_URL } from "@/lib/constants";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,7 +11,6 @@ export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
-  // On sub-pages, anchor links must be prefixed with / so they navigate home first
   function resolveHref(href: string) {
     if (href.startsWith("#")) {
       return isHome ? href : `/${href}`;
@@ -35,9 +34,7 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
   return (
@@ -69,11 +66,18 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            {/* Newsletter button — links to Substack */}
             <a
-              href={resolveHref("#newsletter")}
-              className="rounded-sm bg-accent px-5 py-2.5 font-body text-sm font-semibold text-background transition-all duration-200 hover:bg-accent-dark active:scale-[0.98]"
+              href={SUBSTACK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-sm bg-accent px-5 py-2.5 font-body text-sm font-semibold text-background transition-all duration-200 hover:bg-accent-dark active:scale-[0.98]"
             >
-              Subscribe
+              {/* Substack icon */}
+              <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+              </svg>
+              Newsletter
             </a>
           </div>
 
@@ -127,11 +131,16 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href={resolveHref("#newsletter")}
+            href={SUBSTACK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
-            className="mt-4 rounded-sm bg-accent px-8 py-4 font-body text-base font-semibold text-background"
+            className="mt-4 inline-flex items-center gap-2 rounded-sm bg-accent px-8 py-4 font-body text-base font-semibold text-background"
           >
-            Subscribe
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+            Newsletter
           </a>
         </div>
       </div>

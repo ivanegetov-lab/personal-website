@@ -1,8 +1,11 @@
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Blog", href: "/blog" },
+  { label: "Publications", href: "/publications" },
   { label: "Contact", href: "/contact" },
 ];
+
+export const SUBSTACK_URL = "https://getov.substack.com";
 
 export const SOCIAL_LINKS = [
   {
@@ -14,6 +17,11 @@ export const SOCIAL_LINKS = [
     label: "X / Twitter",
     href: "https://x.com",
     icon: "x",
+  },
+  {
+    label: "Substack",
+    href: "https://getov.substack.com",
+    icon: "substack",
   },
 ];
 

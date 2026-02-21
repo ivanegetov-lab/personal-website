@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS, SITE_META } from "@/lib/constants";
+import { NAV_LINKS, SITE_META, SUBSTACK_URL } from "@/lib/constants";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -17,7 +17,7 @@ export function Footer() {
               IVAN <span className="text-accent">GETOV</span>
             </Link>
             <p className="mt-3 font-body text-sm text-text-muted leading-relaxed max-w-xs">
-              Maintenance leader, manufacturing professional, and father. Writing about the craft of keeping things running.
+              Maintenance leader, manufacturing professional, husband and father. Writing about the craft of keeping things running.
             </p>
           </div>
 
@@ -39,7 +39,9 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="#newsletter"
+                  href={SUBSTACK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="font-body text-sm text-text-secondary hover:text-text-primary transition-colors"
                 >
                   Newsletter
@@ -53,7 +55,7 @@ export function Footer() {
             <p className="font-body text-[11px] font-semibold tracking-[0.18em] uppercase text-accent mb-4">
               Connect
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {/* LinkedIn */}
               <a
                 href="https://linkedin.com"
@@ -76,6 +78,18 @@ export function Footer() {
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+              </a>
+              {/* Substack */}
+              <a
+                href={SUBSTACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-sm border border-border text-text-muted hover:border-accent hover:text-accent transition-all duration-200"
+                aria-label="Substack"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
                 </svg>
               </a>
             </div>
