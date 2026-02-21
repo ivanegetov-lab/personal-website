@@ -84,10 +84,10 @@ export function Hero() {
             {/* Corner accent — bottom-right */}
             <div className="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-accent z-10" />
 
-            {/* Photo container — sized to portrait ratio of the headshot (704×1520 → ~1:2.16) */}
+            {/* Photo container — sized to portrait ratio of the headshot (704×1291 → ~1:1.83) */}
             <div
               className="relative overflow-hidden rounded-sm bg-surface-2 border border-border"
-              style={{ width: "300px", height: "648px" }}
+              style={{ width: "300px", height: "550px" }}
             >
               <Image
                 src="/images/headshot.png"
