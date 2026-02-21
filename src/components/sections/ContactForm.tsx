@@ -13,8 +13,8 @@ const CONTACT_METHODS = [
       </svg>
     ),
     label: "Email",
-    value: "ivan@example.com",
-    href: "mailto:ivan@example.com",
+    value: "ivanegetov@gmail.com",
+    href: "mailto:ivanegetov@gmail.com",
   },
   {
     icon: (
@@ -23,18 +23,8 @@ const CONTACT_METHODS = [
       </svg>
     ),
     label: "LinkedIn",
-    value: "linkedin.com/in/ivangetov",
-    href: "https://linkedin.com",
-  },
-  {
-    icon: (
-      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-      </svg>
-    ),
-    label: "X / Twitter",
-    value: "@ivangetov",
-    href: "https://x.com",
+    value: "linkedin.com/in/ivan-getov-mba",
+    href: "https://www.linkedin.com/in/ivan-getov-mba",
   },
 ];
 
@@ -60,9 +50,23 @@ export function ContactForm() {
     setError("");
     setStatus("loading");
 
-    // Simulate submission — wire to Resend / Formspree / Netlify Forms later
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus("success");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+      } else {
+        const data = await res.json();
+        setError(data.error || "Something went wrong. Please try again.");
+        setStatus("idle");
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setStatus("idle");
+    }
   }
 
   const inputClass =
