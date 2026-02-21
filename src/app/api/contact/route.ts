@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       : `[Contact] New message from ${name}`;
 
     await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",   // swap for your domain once verified
+      from: "Contact Form <contact@getov.xyz>",
       to: "ivanegetov@gmail.com",
       replyTo: email,
       subject: subjectLine,
