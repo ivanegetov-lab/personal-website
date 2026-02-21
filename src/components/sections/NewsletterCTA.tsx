@@ -1,6 +1,6 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { NewsletterForm } from "@/components/ui/NewsletterForm";
+import { SUBSTACK_URL } from "@/lib/constants";
 
 export function NewsletterCTA() {
   return (
@@ -58,16 +58,27 @@ export function NewsletterCTA() {
             </div>
           </AnimatedSection>
 
-          {/* Right: Form */}
+          {/* Right: Substack CTA card */}
           <AnimatedSection delay={0.25} direction="right">
             <div className="rounded-sm border border-border bg-background p-8 lg:p-10">
               <p className="font-body text-sm font-semibold text-text-primary mb-1">
-                Join the newsletter
+                Published on Substack
               </p>
-              <p className="font-body text-xs text-text-muted mb-6">
-                No spam. One email per week, when it&apos;s worth your time.
+              <p className="font-body text-xs text-text-muted mb-8 leading-relaxed">
+                No spam. One essay when it&apos;s worth your time. Subscribe free and read it wherever you want.
               </p>
-              <NewsletterForm />
+
+              <a
+                href={SUBSTACK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-3 rounded-sm bg-accent px-7 py-4 font-body text-sm font-semibold tracking-wide text-background hover:bg-accent-dark transition-colors duration-200"
+              >
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+                </svg>
+                Subscribe on Substack — It&apos;s Free
+              </a>
 
               {/* Benefits */}
               <ul className="mt-6 space-y-2.5">

@@ -64,12 +64,9 @@ export function Hero() {
             </p>
           </motion.div>
 
-          {/* Newsletter form */}
+          {/* Substack CTA */}
           <motion.div {...fadeUp(0.65)} className="mt-8 max-w-lg">
             <NewsletterForm size="hero" />
-            <p className="mt-3 font-body text-xs text-text-muted">
-              No spam. Unsubscribe anytime. Read by people who build things.
-            </p>
           </motion.div>
         </div>
 
