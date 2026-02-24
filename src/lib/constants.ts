@@ -2,7 +2,7 @@ export const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Blog", href: "/blog" },
   { label: "Publications", href: "/publications" },
-  { label: "Tools", href: "https://dashboards.getov.xyz" },
+  { label: "Tools", href: "https://tools.getov.xyz" },
   { label: "Contact", href: "/contact" },
 ];
 
