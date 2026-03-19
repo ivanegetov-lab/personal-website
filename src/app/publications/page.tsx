@@ -79,8 +79,37 @@ export default function PublicationsPage() {
 
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
 
-            {/* Left — book cover */}
+            {/* Left — podcast + book cover */}
             <div className="flex-shrink-0 w-full max-w-sm lg:max-w-[360px] order-1 lg:order-2">
+
+              {/* Podcast player */}
+              <div className="mb-8 rounded-sm border border-border bg-surface p-5">
+                <div className="flex items-center gap-2 mb-3">
+                  <svg className="h-4 w-4 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4zm0 18a7.003 7.003 0 0 1-6.93-6H3.05A8.972 8.972 0 0 0 11 21.95V24h2v-2.05A8.972 8.972 0 0 0 20.95 13h-2.02A7.003 7.003 0 0 1 12 19z" />
+                  </svg>
+                  <span className="font-body text-[11px] font-semibold tracking-[0.15em] uppercase text-accent">
+                    Podcast
+                  </span>
+                </div>
+                <p className="font-body text-sm font-semibold text-text-primary mb-1">
+                  Why Your Likable Manager Is Failing
+                </p>
+                <p className="font-body text-xs text-text-muted mb-4">
+                  A deep dive into the ideas behind the book.
+                </p>
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <audio
+                  controls
+                  preload="metadata"
+                  className="w-full h-10 [&::-webkit-media-controls-panel]:bg-background [&::-webkit-media-controls-panel]:rounded-sm"
+                  style={{ colorScheme: "dark" }}
+                >
+                  <source src="/audio/Why_Your_Likable_Manager_Is_Failing.m4a" type="audio/mp4" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+
               <div className="relative group">
                 {/* Glow behind cover */}
                 <div
