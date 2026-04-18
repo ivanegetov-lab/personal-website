@@ -17,14 +17,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://getov.xyz"),
   title: "Ivan Getov — Built to Last. Built to Lead.",
   description:
     "Maintenance leader, manufacturing professional, and father — writing about the craft of keeping things running.",
   openGraph: {
-    title: "Ivan Getov",
+    title: "Ivan Getov — Built to Last. Built to Lead.",
     description:
       "Maintenance leader, manufacturing professional, and father — writing about the craft of keeping things running.",
+    url: "https://getov.xyz",
+    siteName: "Ivan Getov",
     type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ivan Getov — Built to Last. Built to Lead.",
+    description:
+      "Maintenance leader, manufacturing professional, and father — writing about the craft of keeping things running.",
   },
 };
 
