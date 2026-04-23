@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { BOOK_AMAZON_URL } from "@/lib/constants";
+import { BOOK_AMAZON_URL, BOOK_TOOLKIT_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Publications — Ivan Getov",
@@ -200,7 +200,7 @@ export default function PublicationsPage() {
               </div>
 
               {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
                 <a
                   href={BOOK_AMAZON_URL}
                   target="_blank"
@@ -212,6 +212,18 @@ export default function PublicationsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                   Buy on Amazon
+                </a>
+                <a
+                  href={BOOK_TOOLKIT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-accent/40 bg-accent/5 px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-accent hover:border-accent hover:bg-accent/10 transition-colors duration-200"
+                >
+                  {/* Download icon */}
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Free Companion Toolkit
                 </a>
                 <Link
                   href="/blog"
@@ -278,13 +290,15 @@ export default function PublicationsPage() {
             {[
               {
                 number: "02",
-                title: "The Shift Leader",
-                description: "Leading people through high-pressure, around-the-clock environments. A field guide for front-line manufacturing supervisors.",
+                title: "Fix the System",
+                description:
+                  "The operating manual for maintenance and reliability leaders — a full 25-chapter playbook on the systems that close the gap between the labor a plant pays for and the work it extracts. Ships with a free, no-email-required companion toolkit: worksheets, checklists, and one-pagers you can print and walk a shop with on Monday.",
               },
               {
                 number: "03",
-                title: "Kaizen at Home",
-                description: "What happens when a manufacturing professional applies continuous improvement principles to family, home, and personal growth.",
+                title: "Teams Aren’t Personal",
+                description:
+                  "The direct sequel to Leadership Isn’t Personal. What you build — not who you hire — determines whether a team holds. How to design roles, reinforcement loops, and team structures that produce performance without depending on any one person.",
               },
               {
                 number: "04",
@@ -340,7 +354,7 @@ export default function PublicationsPage() {
               </div>
             </div>
             {/* Bio */}
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 min-w-0 text-center md:text-left">
               <p className="font-body text-[11px] font-semibold tracking-[0.18em] uppercase text-accent mb-2">
                 About the Author
               </p>
