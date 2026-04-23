@@ -285,8 +285,8 @@ export default function PublicationsPage() {
             MORE TO <span className="text-accent">COME</span>
           </h2>
 
-          {/* Placeholder book slots */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Upcoming book slots */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
               {
                 number: "02",
@@ -299,11 +299,6 @@ export default function PublicationsPage() {
                 title: "Teams Aren’t Personal",
                 description:
                   "The direct sequel to Leadership Isn’t Personal. What you build — not who you hire — determines whether a team holds. How to design roles, reinforcement loops, and team structures that produce performance without depending on any one person.",
-              },
-              {
-                number: "04",
-                title: "Untitled",
-                description: "The next chapter is still being written — follow along on Substack as the ideas take shape.",
               },
             ].map((book) => (
               <div
@@ -344,12 +339,12 @@ export default function PublicationsPage() {
           <div className="flex flex-col md:flex-row items-center gap-10 md:gap-16">
             {/* Author photo */}
             <div className="flex-shrink-0">
-              <div className="relative h-28 w-28 rounded-sm overflow-hidden border border-border">
+              <div className="relative h-28 w-28 rounded-sm overflow-hidden border border-border bg-background">
                 <Image
                   src="/images/headshot.png"
                   alt="Ivan Getov"
                   fill
-                  className="object-cover object-top grayscale"
+                  className="object-contain grayscale"
                 />
               </div>
             </div>
