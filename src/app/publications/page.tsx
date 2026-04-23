@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SectionLabel } from "@/components/ui/SectionLabel";
-import { SUBSTACK_URL } from "@/lib/constants";
+import { BOOK_AMAZON_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Publications — Ivan Getov",
@@ -15,7 +15,7 @@ export const metadata = {
 const FEATURED_BOOK = {
   title: "Leadership Isn't Personal",
   subtitle: "Why Systems Outlast Personalities — and How to Build Organizations That Hold Under Pressure",
-  status: "Coming Soon",
+  status: "Now Available",
   coverImage: "/images/3d_book_cover.png",
   intro: [
     "After years inside manufacturing environments — leading maintenance teams, managing capital work, carrying uptime responsibility — I've seen what actually separates stable organizations from fragile ones.",
@@ -202,16 +202,16 @@ export default function PublicationsPage() {
               {/* CTA buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href={SUBSTACK_URL}
+                  href={BOOK_AMAZON_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-sm bg-accent px-8 py-3.5 font-body text-sm font-semibold tracking-wide text-background hover:bg-accent-dark transition-colors duration-200"
                 >
-                  {/* Bell icon */}
+                  {/* Cart icon */}
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
-                  Get Notified on Launch
+                  Buy on Amazon
                 </a>
                 <Link
                   href="/blog"
@@ -234,29 +234,29 @@ export default function PublicationsPage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <p className="font-body text-[11px] font-semibold tracking-[0.18em] uppercase text-accent mb-2">
-                Be First in Line
+                Out Now
               </p>
               <h2
                 className="font-display text-text-primary leading-none tracking-wide"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 3rem)" }}
               >
-                DON&apos;T MISS THE LAUNCH
+                READ IT THIS WEEKEND
               </h2>
               <p className="font-body text-text-muted text-sm mt-2 max-w-md">
-                Subscribe on Substack and you&apos;ll be the first to know when the book drops — plus get early access to chapters.
+                Leadership Isn&apos;t Personal is available now on Amazon — Kindle and paperback.
               </p>
             </div>
             <a
-              href={SUBSTACK_URL}
+              href={BOOK_AMAZON_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex-shrink-0 inline-flex items-center gap-3 rounded-sm bg-accent px-8 py-4 font-body text-sm font-semibold tracking-wide text-background hover:bg-accent-dark transition-colors duration-200"
             >
-              {/* Substack icon */}
-              <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z" />
+              {/* Cart icon */}
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              Follow on Substack
+              Buy on Amazon
             </a>
           </div>
         </div>

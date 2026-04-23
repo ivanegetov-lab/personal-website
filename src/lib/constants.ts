@@ -8,6 +8,9 @@ export const NAV_LINKS = [
 
 export const SUBSTACK_URL = "https://getov.substack.com";
 
+export const BOOK_AMAZON_URL =
+  "https://www.amazon.com/dp/B0GX2YP4L9/ref=tmm_kin_swatch_0";
+
 export const SOCIAL_LINKS = [
   {
     label: "LinkedIn",
